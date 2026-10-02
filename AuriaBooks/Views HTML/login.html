@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuriaBooks - Login</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        main {
+            height: 100vh;
+            background-color: #e30613;
+        }
+        #background-login {
+            background-image: url("assets/background-biblioteca.jpg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            filter: brightness(50%);
+            height: 100%;
+            width: auto;
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            flex-direction: ;
+        }
+        #background-login-in p {
+            font-size: 2.5rem;
+            margin: 0;
+            color: white;
+            font-weight: bold;
+            
+        }
+        #background-login-in {
+            width: 40%;
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            /* display: flex; */
+            /* flex-direction: column; */
+            /* justify-content: space-between; */
+            
+        }
+        #box-login {
+            width: 30%;
+            height: auto;
+            border-radius: 15px;
+            background-color: white;
+            position: absolute;
+            top: 20%;
+            right: 150px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #box-login h1 {
+            font-size: 3rem;
+        }
+        #box-login form {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+        }
+        form label {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        form input, form button {
+            width: 100%;
+            height: 55px;
+            border: 2px solid black;
+            border-radius: 15px;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+        form input {
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 1.3rem;
+        }
+        form button {
+            background-color: #e30613;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+        form p {
+            font-size: 1.5rem;
+        }
+        form a {
+            /* text-decoration: none; */
+            color: #e30613;
+        }
+
+        .linkvermelho {
+            color: red;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .logo-grande {
+            height: 120px;
+            width: auto;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            z-index: 1000;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <main>
+        <img class="logo-grande" src="assets/logo-senai-grande.png" alt="Logo visual grande do SENAI">
+        <div id="background-login"></div>
+        <div id="background-login-in">
+            <p>Bem-vindo à Biblioteca Virtual!</p>
+            <hr>
+            <p>O conhecimento é a semente para um futuro brilhante!</p>
+        </div>
+        <div id="box-login">
+            <h1>Login</h1>
+            <form action="#" >
+                <label for="email">Email educacional</label>
+                <input type="email" name="email" placeholder="Digite o seu e-mail educacional">
+
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" placeholder="Digite a sua senha">
+
+                <button>Entrar</button>
+
+                <a href="esqueceu-senha.html" class="linkvermelho">Esqueci minha senha</a>
+                <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

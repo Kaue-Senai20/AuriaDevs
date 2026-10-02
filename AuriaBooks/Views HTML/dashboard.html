@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auria Books - Dashboard</title>
+<style>
+*{box-sizing:border-box;font-family:'Montserrat',Arial,sans-serif}
+body{margin:0;background:#f2f2f2}
+header{background:#e30613;color:#fff;padding:16px 32px;display:flex;gap:28px;font-size:1.2rem;font-weight:bold;flex-wrap:wrap}
+header a{color:#fff;text-decoration:none}header a.on{text-decoration:underline}
+.wrap{padding:24px 32px;max-width:1200px;margin:auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.c{background:#fff;border-radius:16px;padding:20px;text-align:left;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.c small{color:#777;font-weight:bold}.c b{font-size:2.6rem;display:block}
+.bar{height:5px;border-radius:3px;background:#eee;margin-top:8px}.bar i{display:block;height:100%;border-radius:3px}
+.panels{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;margin-top:20px}
+.p{background:#fff;border-radius:16px;padding:20px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.cols{display:flex;align-items:flex-end;gap:10px;height:150px;margin-top:12px}
+.col{flex:1;background:#e05656;border-radius:6px 6px 0 0;text-align:center;color:#777;font-size:.8rem}
+.col span{display:block;margin-top:4px}
+.donut{display:flex;align-items:center;gap:16px}
+.livro{display:flex;align-items:center;gap:12px;margin:14px 0}
+.livro .tr{flex:1;height:10px;background:#f6dede;border-radius:6px}.livro .tr i{display:block;height:100%;background:#d42a1e;border-radius:6px}
+.livro b{color:#d42a1e;min-width:28px;text-align:right}
+@media(max-width:900px){.panels{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><span>Auria Books</span><a class="on" href="dashboard.html">Dashboard</a><a href="gerenciamento-acervo.html">Acervo</a><a href="gerenciamento-usuarios.html">Usuários</a><a href="relatorios.html">Relatórios</a><a href="perfil.html">Ver perfil</a></header>
+<div class="wrap">
+<h1>Visão geral</h1>
+<div class="cards">
+<div class="c"><small>TOTAL DE LIVROS</small><b>248</b><small>no acervo</small><div class="bar"><i style="width:100%;background:#d42a1e"></i></div></div>
+<div class="c"><small>DISPONÍVEIS</small><b style="color:green">183</b><small>de 248 livros</small><div class="bar"><i style="width:74%;background:green"></i></div></div>
+<div class="c"><small>EM ATRASO</small><b style="color:#e30613">7</b><small>empréstimos</small><div class="bar"><i style="width:12%;background:#e30613"></i></div></div>
+<div class="c"><small>USUÁRIOS</small><b style="color:#1976d2">312</b><small>cadastrados</small><div class="bar"><i style="width:100%;background:#1976d2"></i></div></div>
+</div>
+<div class="panels">
+<div class="p"><b>Empréstimos mensais</b><br><small>Jan – Ago 2026</small>
+<div class="cols">
+<div class="col" style="height:55%">Jan</div><div class="col" style="height:80%">Fev</div><div class="col" style="height:60%">Mar</div><div class="col" style="height:95%">Abr</div><div class="col" style="height:65%">Mai</div><div class="col" style="height:85%">Jun</div><div class="col" style="height:60%">Jul</div><div class="col" style="height:90%">Ago</div>
+</div></div>
+<div>
+<div class="p"><b>Empréstimos anuais</b><div class="donut"><svg width="110" height="110" viewBox="0 0 110 110"><circle cx="55" cy="55" r="45" fill="none" stroke="#eee" stroke-width="12"/><circle cx="55" cy="55" r="45" fill="none" stroke="#d42a1e" stroke-width="12" stroke-dasharray="283" stroke-dashoffset="40" stroke-linecap="round" transform="rotate(-90 55 55)"/><text x="55" y="62" text-anchor="middle" font-size="20" font-weight="bold">410</text></svg><div><b>410 empréstimos</b><br><small>em 2026 até agora</small></div></div></div>
+<div class="p" style="margin-top:20px"><b>Atrasos por mês</b><div class="cols" style="height:90px"><div class="col" style="height:55%">Mai</div><div class="col" style="height:80%">Jun</div><div class="col" style="height:40%">Jul</div><div class="col" style="height:95%">Ago</div></div></div>
+</div>
+</div>
+<div class="p" style="margin-top:20px"><b>Livros mais emprestados</b>
+<div class="livro"><div><b style="color:#000">Dom Casmurro</b><br><small>Machado de Assis</small></div><div class="tr"><i style="width:100%"></i></div><b>38</b></div>
+<div class="livro"><div><b style="color:#000">1984</b><br><small>George Orwell</small></div><div class="tr"><i style="width:80%"></i></div><b>31</b></div>
+<div class="livro"><div><b style="color:#000">O Cortiço</b><br><small>Aluísio Azevedo</small></div><div class="tr"><i style="width:63%"></i></div><b>24</b></div>
+<div class="livro"><div><b style="color:#000">A Revolução dos Bichos</b><br><small>George Orwell</small></div><div class="tr"><i style="width:50%"></i></div><b>19</b></div>
+</div>
+</div>
+</body>
+</html>

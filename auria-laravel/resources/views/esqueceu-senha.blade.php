@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auria Books - Esqueceu a senha</title>
+<style>
+*{box-sizing:border-box;font-family:'Montserrat',Arial,sans-serif}
+body{margin:0;display:flex;min-height:100vh}
+.left{flex:1;background:#e30613;color:#fff;padding:48px;display:flex;flex-direction:column}
+.left img{width:220px}
+.left h2{font-size:1.8rem;margin:auto 0}
+.right{flex:1.4;background:#f5f5f5;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px}
+.btn{display:inline-block;background:#e30613;color:#fff;padding:16px 48px;border-radius:16px;text-decoration:none;font-weight:bold;font-size:1.1rem;margin-top:20px;min-width:320px}
+@media(max-width:900px){body{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="left">
+<img src="{{ asset('assets/logo-senai-grande-invertida.png') }}" alt="SENAI" onerror="this.style.display='none'">
+<h2>Entre no acervo digital<br>da sua escola já!</h2>
+</div>
+<div class="right">
+<div>
+<h1>Esqueceu a senha?</h1>
+<p><b>Não é possível alterar sua senha sozinho(a).</b></p>
+<p>Procure o(a) bibliotecário(a) responsável para<br>redefinir uma nova senha.</p>
+<a class="btn" href="{{ url('/login') }}">Voltar para o login</a>
+</div>
+</div>
+</body>
+</html>

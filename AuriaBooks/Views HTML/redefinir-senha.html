@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auria Books - Redefinir senha</title>
+<style>
+*{box-sizing:border-box;font-family:'Montserrat',Arial,sans-serif}
+body{margin:0;display:flex;min-height:100vh}
+.left{flex:1;background:#e30613;padding:48px}
+.left img{width:220px}
+.right{flex:1.4;background:#f5f5f5;display:flex;align-items:center;justify-content:center;padding:32px}
+.box{width:min(560px,100%)}
+label{font-weight:bold;display:block;margin-top:14px}
+input{width:100%;height:52px;border:2px solid #777;border-radius:16px;padding:0 16px;margin-top:6px;font-size:1rem}
+button{width:100%;height:56px;background:#e30613;color:#fff;border:0;border-radius:16px;font-size:1.1rem;font-weight:bold;margin-top:24px;cursor:pointer}
+.err{color:#e30613;font-weight:bold;display:none}
+#ok{display:none;text-align:center}
+#ok .icon{width:140px;height:140px;background:#e30613;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:4rem;margin:0 auto;color:#fff}
+#ok .btn{display:inline-block;background:#e30613;color:#fff;padding:14px 48px;border-radius:16px;text-decoration:none;font-weight:bold;margin-top:16px}
+@media(max-width:900px){body{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="left">
+<img src="assets/logo-senai-grande-invertida.png" alt="SENAI" onerror="this.style.display='none'">
+</div>
+<div class="right">
+<div class="box" id="formbox">
+<h1>Redefinir senha</h1>
+<p>Crie uma nova senha para acessar<br>sua conta novamente.</p>
+<p class="err" id="err">A senha deve ter no mínimo 6 caracteres e as duas devem coincidir.</p>
+<label>Senha</label>
+<input type="password" id="s1" placeholder="Digite sua senha">
+<label>Confirmar senha</label>
+<input type="password" id="s2" placeholder="Repita sua senha">
+<p><b>A SENHA DEVE CONTER</b></p>
+<ul><li>Mínimo de 6 caracteres</li></ul>
+<button id="go">REDEFINIR SENHA</button>
+</div>
+<div class="box" id="ok">
+<div class="icon">✓</div>
+<h1>Senha redefinida!</h1>
+<p>Sua senha foi alterada com sucesso.<br>Agora você já pode acessar sua conta.</p>
+<a class="btn" href="login.html">IR PARA LOGIN</a>
+</div>
+</div>
+<script>
+document.getElementById('go').addEventListener('click',function(){
+var a=document.getElementById('s1').value,b=document.getElementById('s2').value;
+if(a.length<6||a!==b){document.getElementById('err').style.display='block';return;}
+document.getElementById('formbox').style.display='none';
+document.getElementById('ok').style.display='block';
+});
+</script>
+</body>
+</html>

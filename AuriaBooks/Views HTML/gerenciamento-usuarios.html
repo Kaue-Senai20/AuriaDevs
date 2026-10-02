@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auria Books - Gerenciamento de usuários</title>
+<style>
+*{box-sizing:border-box;font-family:'Montserrat',Arial,sans-serif}
+body{margin:0;background:#f7f7f7}
+header{background:#e30613;color:#fff;padding:16px 32px;display:flex;gap:28px;font-size:1.2rem;font-weight:bold;flex-wrap:wrap}
+header a{color:#fff;text-decoration:none}header a.on{text-decoration:underline}
+.wrap{padding:24px 32px}
+.fbtn{border:2px solid #777;background:#fff;border-radius:14px;padding:10px 28px;font-size:1rem;cursor:pointer;margin:12px 0}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{border:1px solid #e0e0e0;padding:12px;text-align:left}
+th{background:#eee}
+.pill{background:#eee;border-radius:12px;padding:4px 14px;font-size:.85rem;font-weight:bold;white-space:nowrap}
+.ic{cursor:pointer;font-size:1.3rem;margin-right:14px}.del{color:#e30613}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:10}
+.modal{background:#fff;border-radius:20px;max-width:640px;width:100%;padding:32px;max-height:90vh;overflow:auto}
+.modal .x{float:right;font-size:1.8rem;cursor:pointer;border:0;background:none}
+.uhead{display:flex;align-items:center;gap:16px}
+.avatar{width:90px;height:90px;border-radius:50%;background:#e30613;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:bold}
+.dev{color:green;font-weight:bold}.atr{color:red;font-weight:bold}.ren{color:#1976d2;font-weight:bold}.emp{color:#999;font-weight:bold}.inte{color:#8e24aa;font-weight:bold}
+</style>
+</head>
+<body>
+<header><span>Auria Books</span><a href="dashboard.html">Dashboard</a><a href="gerenciamento-acervo.html">Acervo</a><a class="on" href="gerenciamento-usuarios.html">Usuários</a><a href="relatorios.html">Relatórios</a><a href="perfil.html">Ver perfil</a></header>
+<div class="wrap">
+<h1>Gerenciamento de usuários</h1><hr>
+<button class="fbtn" onclick="alert('Filtro: Todos / DEV 1 / DEV 2')">Filtro ▽</button>
+<table id="tab"></table>
+</div>
+
+<div class="overlay" id="ov"><div class="modal">
+<button class="x" onclick="fechar()">✕</button>
+<div class="uhead"><div class="avatar" id="uAv">AL</div><h2 id="uNo"></h2></div>
+<table>
+<tr><td style="background:#eee;font-weight:bold">E-mail</td><td id="uEm"></td></tr>
+<tr><td style="background:#eee;font-weight:bold">Turma</td><td id="uTu"></td></tr>
+<tr><td style="background:#eee;font-weight:bold">Telefone</td><td id="uTe"></td></tr>
+<tr><td style="background:#eee;font-weight:bold">Senha</td><td>Clique para redefinir a senha ↻</td></tr>
+</table>
+<h3 style="text-align:center">Histórico de empréstimos</h3>
+<table>
+<tr style="background:#eee;font-weight:bold"><td>Livro</td><td>Data</td><td>Status</td></tr>
+<tr><td>Diario de Um Banana</td><td>2026-07-21 12:49:23</td><td class="dev">• Devolvido</td></tr>
+<tr><td>Diario de Um Banana</td><td>2026-08-20 10:02:51</td><td class="atr">• Atrasado</td></tr>
+<tr><td>Diario de Um Banana</td><td>2026-08-06 10:02:51</td><td class="ren">• Renovado</td></tr>
+<tr><td>Diario de Um Banana</td><td>2026-07-23 09:32:47</td><td class="emp">• Emprestado</td></tr>
+<tr><td>Diario de Um Banana</td><td>2026-07-23 08:15:36</td><td class="inte">• Interesse</td></tr>
+</table>
+</div></div>
+
+<script>
+var users=[
+{n:'Aluno Exemplo 1',e:'aluno1@aluno.senai.br',t:'DEV 2',f:'+55 19 90000-0001',d:'12/01/2009'},
+{n:'Aluno Exemplo 2',e:'aluno2@aluno.senai.br',t:'DEV 2',f:'+55 19 90000-0002',d:'10/02/2009'},
+{n:'Aluno Exemplo 3',e:'aluno3@aluno.senai.br',t:'DEV 2',f:'+55 19 90000-0003',d:'25/01/2009'},
+{n:'Aluno Exemplo 4',e:'aluno4@aluno.senai.br',t:'DEV 2',f:'+55 19 90000-0004',d:'03/07/2008'}];
+function render(){
+var tb=document.getElementById('tab');
+tb.innerHTML='<tr><th>Nome</th><th>E-mail</th><th>Turma</th><th>Telefone</th><th>Nascimento</th><th>Ação</th></tr>';
+users.forEach(function(u,i){
+var tr=document.createElement('tr');
+tr.innerHTML='<td>'+u.n+'</td><td>'+u.e+'</td><td>'+u.t+'</td><td>'+u.f+'</td><td><span class="pill">'+u.d+'</span></td><td><span class="ic" onclick="ver(event,'+i+')">✎</span><span class="ic del" onclick="exc(event,'+i+')">🗑</span></td>';
+tb.appendChild(tr);});
+}
+function ver(ev,i){ev.stopPropagation();var u=users[i];
+uAv.textContent=u.n.split(' ').map(function(w){return w[0]}).join('').slice(0,2).toUpperCase();
+uNo.textContent=u.n;uEm.textContent=u.e;uTu.textContent=u.t;uTe.textContent=u.f;
+document.getElementById('ov').style.display='flex';}
+function exc(ev,i){ev.stopPropagation();if(confirm('Remover "'+users[i].n+'"?')){users.splice(i,1);render();}}
+function fechar(){document.getElementById('ov').style.display='none';}
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# Dependências e runtime (recriados com composer/npm)
+auria-laravel/vendor/
+auria-laravel/node_modules/
+AuriaBooks/Protótipo bot whatsapp/botwhatsapp-1/node_modules/
+
+# Ambiente e segredos (não commitar credenciais)
+**/.env
+
+# Banco local e logs gerados
+auria-laravel/database/*.sqlite
+auria-laravel/storage/logs/*.log
+auria-laravel/storage/framework/views/*.php
+
+# Lixo de SO e Office
+Thumbs.db
+desktop.ini
+~$*.docx
+
+# Sessões do bot WhatsApp
+**/sessions/
