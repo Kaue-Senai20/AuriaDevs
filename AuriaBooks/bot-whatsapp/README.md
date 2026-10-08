@@ -20,6 +20,12 @@ npm start
 
 Escaneie o QR Code com o WhatsApp do celular da biblioteca.
 
+## Regras de envio
+
+- **Lembrete:** 2 dias antes do vencimento.
+- **Aviso:** no 1º dia de atraso e depois **a cada 4 dias** (dias 1, 5, 9...),
+  até o livro ser devolvido.
+
 ## Testando sem multa de verdade
 
 Para ver o bot funcionando, crie um empréstimo atrasado de teste:

@@ -47,15 +47,15 @@ Route::middleware('api.token')->group(function () {
                 'usuario' => $l->user?->name,
                 'telefone' => $l->user?->telephone,
                 'livro' => $l->book?->title,
-                'dias_atraso' => now()->diffInDays($l->due_date),
+                'dias_atraso' => (int) abs(now()->diffInDays($l->due_date)),
             ]);
     });
 
-    // Lembretes: vencem amanhã (pro bot avisar 1 dia antes)
+    // Lembretes: vencem em 2 dias (pro bot avisar antes)
     Route::get('/lembretes', function () {
         return Loan::with(['user:id,name,telephone', 'book:id,title'])
             ->where('status', 'borrowed')
-            ->whereDate('due_date', now()->addDay()->toDateString())
+            ->whereDate('due_date', now()->addDays(2)->toDateString())
             ->get()
             ->map(fn ($l) => [
                 'emprestimo_id' => $l->id,

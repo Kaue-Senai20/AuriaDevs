@@ -63,6 +63,6 @@ export async function sendOverdueNotification(phoneNumber, userName, bookTitle, 
 }
 
 export async function sendReminderNotification(phoneNumber, userName, bookTitle) {
-  const message = `📚 *Auria Books - Lembrete de Devolução*\n\nOlá, ${userName}!\n\nFalta *1 dia* para a devolução do livro *"${bookTitle}"*.\n\nLembre-se de devolver ou renovar na biblioteca.\n\nAtenciosamente,\nEquipe Auria Books`;
+  const message = `📚 *Auria Books - Lembrete de Devolução*\n\nOlá, ${userName}!\n\nFaltam *2 dias* para a devolução do livro *"${bookTitle}"*.\n\nLembre-se de devolver ou renovar na biblioteca.\n\nAtenciosamente,\nEquipe Auria Books`;
   return sendMessage(phoneNumber, message);
 }
